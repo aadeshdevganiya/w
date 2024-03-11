@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furniture Website Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <header>
+        <h1>Furniture Website Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#orders">Orders</a></li>
+                <li><a href="#sales">Sales</a></li>
+                <li><a href="#analytics">Analytics</a></li>
+                <li><a href="#settings">Settings</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="products">
+            <h2>Product Management</h2>
+            <!-- Product management components -->
+            <div id="product-list">
+                <!-- Display product list dynamically using JavaScript -->
+            </div>
+        </section>
+        <section id="orders">
+            <h2>Order Management</h2>
+            <!-- Order management components -->
+            <div id="order-list">
+                <!-- Display order list dynamically using JavaScript -->
+            </div>
+        </section>
+        <section id="sales">
+            <h2>Sales Management</h2>
+            <!-- Sales management components -->
+            <div id="sales-chart">
+                <!-- Display sales chart dynamically using JavaScript or integrate with a charting library -->
+            </div>
+        </section>
+        <section id="analytics">
+            <h2>Analytics</h2>
+            <!-- Analytics components -->
+            <div id="analytics-data">
+                <!-- Display analytics data dynamically using JavaScript -->
+            </div>
+        </section>
+        <section id="settings">
+            <h2>Settings</h2>
+            <!-- Settings components -->
+            <div id="account-settings">
+                <!-- Display account settings dynamically using JavaScript -->
+            </div>
+        </section>
+    </main>
+    <script>
+        // Sample data for demonstration
+const products = [
+    { id: 1, name: 'Chair', price: 50 },
+    { id: 2, name: 'Table', price: 100 },
+    { id: 3, name: 'Sofa', price: 300 }
+];
+
+const orders = [
+    { id: 1, product_id: 1, quantity: 2, total: 100 },
+    { id: 2, product_id: 2, quantity: 1, total: 100 },
+    { id: 3, product_id: 3, quantity: 1, total: 300 }
+];
+
+// Function to display product list
+function displayProducts() {
+    const productList = document.getElementById('product-list');
+    productList.innerHTML = '';
+    products.forEach(product => {
+        const item = document.createElement('div');
+        item.textContent = `${product.name} - $${product.price}`;
+        productList.appendChild(item);
+    });
+}
+
+// Function to display order list
+function displayOrders() {
+    const orderList = document.getElementById('order-list');
+    orderList.innerHTML = '';
+    orders.forEach(order => {
+        const item = document.createElement('div');
+        const product = products.find(p => p.id === order.product_id);
+        item.textContent = `${product.name} - Quantity: ${order.quantity} - Total: $${order.total}`;
+        orderList.appendChild(item);
+    });
+}
+
+// Display initial data
+displayProducts();
+displayOrders();
+
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
